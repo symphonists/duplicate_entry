@@ -1,9 +1,9 @@
-# Duplicate Profile
+# Duplicate Entry
 
-* Version: 1.0
+* Version: 1.1
 * Author: Nick Dunn <http://github.com/nickdunn/>
-* Build Date: 2009-09-23
-* Requirements: Symphony 2.0.2
+* Build Date: 2010-02-22
+* Requirements: Symphony 2.0.6
 
 ## Installation
 
@@ -12,7 +12,7 @@
 
 ## Usage
 
-When viewing an entry's "edit" form you will see a "Save as New" button. Submitting the form using this button will save changes to a brand new entry.
+When viewing an entry's "edit" form you will see a "Save as New" button. Submitting the form using this button will save changes to a brand new entry. If you have two sections with identical schemas (field names and types are compared) then a dropdown will be displayed beside the Save as New button allowing you to save a copy of the entry into the other section.
 
 ## Todo
 * Make the button translatable

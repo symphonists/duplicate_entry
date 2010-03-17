@@ -40,7 +40,6 @@
 			$page = $context['parent']->Page;
 			
 			if ($page instanceof contentPublish and $page->_context['page'] == 'edit') {
-				$page->addScriptToHead(URL . '/extensions/duplicate_entry/assets/duplicate_entry.js', 123456789);
 				
 				$sm = new SectionManager(Administration::instance());
 				
@@ -59,7 +58,9 @@
 				
 				$json = 'var duplicate_sections = ' . json_encode($duplicate_sections);
 				$script = new XMLElement('script', $json, array('type' => 'text/javascript'));
-				$page->addElementToHead($script);
+				
+				$page->addElementToHead($script, 10000);
+				$page->addScriptToHead(URL . '/extensions/duplicate_entry/assets/duplicate_entry.js', 10001);
 				
 			}
 		}

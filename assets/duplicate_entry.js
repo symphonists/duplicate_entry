@@ -12,7 +12,7 @@ var DuplicateEntry = {
 		var sections = '';
 
 		// when duplicate_sections is not a blank array
-		if (duplicate_sections.length == undefined) {
+		if (duplicate_sections != null) {
 			sections = '<select style="width:auto;float:right;" id="duplicate-section">';
 			for(var section in duplicate_sections) {
 				selected = '';
@@ -31,7 +31,9 @@ var DuplicateEntry = {
 		
 		jQuery('#duplicate-button').click(function() {
 			var action = form_action.replace(/edit\/[0-9]+\/(.+)?/, 'new/');
-			action = form_action.replace(/publish\/([a-zA-Z0-9-_]+)\/(.+)?/, 'publish/' + jQuery('#duplicate-section').val() + '/new/');
+			if (duplicate_sections != null) {
+				action = form_action.replace(/publish\/([a-zA-Z0-9-_]+)\/(.+)?/, 'publish/' + jQuery('#duplicate-section').val() + '/new/');
+			}
 			form.attr('action', action);
 		});
 	}

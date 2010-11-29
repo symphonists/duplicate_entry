@@ -51,15 +51,17 @@
 				
 				foreach($sm->fetch() as $section) {
 					$section_hash = $this->serialiseSectionSchema($section);
-					if ($section_hash == $current_section_hash) {
+					if ($section_hash == $current_section_hash && $section->get('handle')) {
 						$duplicate_sections[$section->get('handle')] = $section->get('name');
 					}
 				}
 				
-				$json = 'var duplicate_sections = ' . json_encode($duplicate_sections);
-				$script = new XMLElement('script', $json, array('type' => 'text/javascript'));
+				if (count($duplicate_sections) < 2) $duplicate_sections = NULL;
 				
+				$json = 'var duplicate_sections = ' . json_encode($duplicate_sections) . ';';
+				$script = new XMLElement('script', $json, array('type' => 'text/javascript'));
 				$page->addElementToHead($script, 10000);
+				
 				$page->addScriptToHead(URL . '/extensions/duplicate_entry/assets/duplicate_entry.js', 10001);
 				
 			}

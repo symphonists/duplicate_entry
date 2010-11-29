@@ -1,3 +1,7 @@
+Symphony.Language.add({
+	"Save as New": false
+});
+
 var DuplicateEntry = {
 	
 	init: function() {
@@ -26,7 +30,7 @@ var DuplicateEntry = {
 		
 		jQuery('#duplicate-entry')
 		.append('<span style="float:right;display:block;width:40px;text-align:center;margin-right:-10px">or</span>')
-		.append('<input type="submit" value="Save as New" id="duplicate-button" name="action[save]"/>')
+		.append('<input type="submit" value="' + Symphony.Language.get("Save as New") + '" id="duplicate-button" name="action[save]"/>')
 		.append(sections);
 		
 		jQuery('#duplicate-button').click(function() {

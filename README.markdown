@@ -27,5 +27,4 @@ When viewing an entry's "edit" form you will see a "Save as New" button. Submitt
 - Initial public release
 
 ## Todo
-* Make the button translatable
 * Fix bug whereby validation errors render the form back in "new" mode (potentially unfixable)

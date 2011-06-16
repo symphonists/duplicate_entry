@@ -1,5 +1,6 @@
 Symphony.Language.add({
-	"Save as New": false
+	"Save as New": false,
+	"or": false,
 });
 
 var DuplicateEntry = {
@@ -29,11 +30,12 @@ var DuplicateEntry = {
 		save_button.after('<span id="duplicate-entry" style="display:block;float:right;"></span>');
 		
 		jQuery('#duplicate-entry')
-		.append('<span style="float:right;display:block;width:40px;text-align:center;margin-right:-10px">or</span>')
-		.append('<input type="submit" value="' + Symphony.Language.get("Save as New") + '" id="duplicate-button" name="action[save]"/>')
+		.append('<span style="float:right;display:block;width:40px;text-align:center;margin-right:-10px">' + Symphony.Language.get("or") + '</span>')
+		.append('<input type="submit" value="' + Symphony.Language.get("Save as New") + '" id="duplicate-button" name="action[save-duplicate]"/>')
 		.append(sections);
 		
 		jQuery('#duplicate-button').click(function() {
+			jQuery(this).attr('name', 'action[save]');
 			var action = form_action.replace(/edit\/[0-9]+\/(.+)?/, 'new/');
 			if (duplicate_sections != null) {
 				action = form_action.replace(/publish\/([a-zA-Z0-9-_]+)\/(.+)?/, 'publish/' + jQuery('#duplicate-section').val() + '/new/');

@@ -58,9 +58,16 @@
 				
 				if (count($duplicate_sections) < 2) $duplicate_sections = NULL;
 				
-				$json = 'var duplicate_sections = ' . json_encode($duplicate_sections) . ';';
-				$script = new XMLElement('script', $json, array('type' => 'text/javascript'));
-				$page->addElementToHead($script, 10000);
+				Administration::instance()->Page->addElementToHead(
+					new XMLElement(
+						'script',
+						"Symphony.Context.add('duplicate-entry', " . json_encode(array(
+							'current-section' => $callback['context']['section_handle'],
+							'duplicate-sections' => $duplicate_sections,
+						)) . ");",
+						array('type' => 'text/javascript')
+					), time()
+				);
 				
 				$page->addScriptToHead(URL . '/extensions/duplicate_entry/assets/duplicate_entry.js', 10001);
 				

@@ -12,12 +12,12 @@ var DuplicateEntry = {
 		var form = jQuery('form');
 		var form_action = form.attr('action');
 		
-		var current_section = form_action.match(/publish\/([a-zA-Z0-9-_]+)\//)[1];
-		
+		var current_section = Symphony.Context.get('duplicate-entry')['current-section'];
+		var duplicate_sections = Symphony.Context.get('duplicate-entry')['duplicate-sections'];
 		var sections = '';
 
 		// when duplicate_sections is not a blank array
-		if (duplicate_sections != null) {
+		if (duplicate_sections != null && duplicate_sections != 'null') {
 			sections = '<select style="width:auto;float:right;" id="duplicate-section">';
 			for(var section in duplicate_sections) {
 				selected = '';

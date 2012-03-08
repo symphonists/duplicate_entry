@@ -30,7 +30,7 @@ var DuplicateEntry = {
 		save_button.after('<span id="duplicate-entry" style="display:block;float:right;"></span>');
 		
 		jQuery('#duplicate-entry')
-		.append('<span style="float:right;display:block;width:40px;text-align:center;margin-right:-10px">' + Symphony.Language.get("or") + '</span>')
+		.append('<span style="float:right;display:block;width:30px;text-align:center;margin-right:-10px;line-height:2;color:darkGray;">' + Symphony.Language.get("or") + '</span>')
 		.append('<input type="submit" value="' + Symphony.Language.get("Save as New") + '" id="duplicate-button" name="action[save-duplicate]"/>')
 		.append(sections);
 		

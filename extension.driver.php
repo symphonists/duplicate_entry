@@ -62,6 +62,14 @@
 				
 				$page->addScriptToHead(URL . '/extensions/duplicate_entry/assets/duplicate_entry.js', 10001);
 				
+				// add particular css for SSM
+				Administration::instance()->Page->addElementToHead(
+					new XMLElement(
+						'style',
+						"body.inline.subsection #duplicate-entry { display: none; visibility: collapse }",
+						array('type' => 'text/css')
+					), time()+101
+				);
 			}
 		}
 	}

@@ -47,5 +47,8 @@ var DuplicateEntry = {
 }
 
 jQuery(document).ready(function() {
-	DuplicateEntry.init();
+	// do not show when in Subsection Manager
+	if (!$('#body').hasClass('subsection')) {
+		DuplicateEntry.init();
+	}
 });

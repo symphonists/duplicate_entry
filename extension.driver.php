@@ -48,6 +48,19 @@
 				}
 				
 				if (count($duplicate_sections) < 2) $duplicate_sections = NULL;
+
+				$duplicateEntryConfig = Symphony::Configuration()->get('duplicate_entry');
+				$sections = array_keys($duplicateEntryConfig);
+
+				$configOptionToClearFields = array();
+						
+				$thisSection = $page->_context['section_handle'];
+				// Only load on /publish/static-pages/ [this should be a variable]
+				if ( in_array($thisSection , $sections) ){
+
+					$configOptionToClearFields = $duplicateEntryConfig[$thisSection];
+
+				}
 				
 				Administration::instance()->Page->addElementToHead(
 					new XMLElement(
@@ -55,6 +68,7 @@
 						"Symphony.Context.add('duplicate-entry', " . json_encode(array(
 							'current-section' => $callback['context']['section_handle'],
 							'duplicate-sections' => $duplicate_sections,
+							'clear-fields' => $configOptionToClearFields,
 						)) . ");",
 						array('type' => 'text/javascript')
 					), time()

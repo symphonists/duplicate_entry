@@ -9,5 +9,17 @@
 
 When viewing an entry's "edit" form you will see a "Save as New" button. Submitting the form using this button will save changes to a brand new entry. If you have two sections with identical schemas (field names and types are compared) then a dropdown will be displayed beside the Save as New button allowing you to save a copy of the entry into the other section.
 
+### Clearing Fields
+
+For each section you can list fields which need to be cleared (blank value) on save; the below is a template you can use to add settings.
+
+	###### DUPLICATE_ENTRY ######
+	'duplicate_entry' => array(
+		'section-name' =>  array(
+			"field-name-1",
+			"field-name-2",
+		)
+	),
+
 ## Todo
 * Fix bug whereby validation errors render the form back in "new" mode (potentially unfixable)

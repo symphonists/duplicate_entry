@@ -22,7 +22,7 @@
 
 			// when duplicate_sections is not a blank array
 			if (duplicate_sections != null && duplicate_sections != 'null') {
-				sections = '<select style="width:auto;float:right;" id="duplicate-section">';
+				sections = '<select id="duplicate-section">';
 				for(var section in duplicate_sections) {
 					selected = '';
 					if (section == current_section) selected = ' selected="selected"';

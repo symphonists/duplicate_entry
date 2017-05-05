@@ -1,0 +1,22 @@
+
+#duplicate-entry {
+	transition-property: opacity, background!important;
+	transition-duration: 0.45s;
+	transition-timing-function: 'ease-in-out';
+	background: #2f77eb;
+}
+
+#duplicate-entry select {
+	display: block;
+	line-height: 2.8rem;
+	margin: -0.5rem 1.5rem 1rem;
+	border: none;
+	background-color: #fff;
+	width: calc(100% - 3rem);
+	height: 2.8rem;
+}
+
+body #contents .actions #duplicate-entry:hover,
+body #contents .actions #duplicate-entry:hover input {
+	background: #3B3D40!important;
+}

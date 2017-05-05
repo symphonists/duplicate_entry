@@ -69,7 +69,17 @@
 					), time()
 				);
 
-				$page->addScriptToHead(URL . '/extensions/duplicate_entry/assets/duplicate_entry.js', 10001);
+				$page->addStylesheetToHead(
+					URL . '/extensions/duplicate_entry/assets/duplicate_entry.css',
+					'screen',
+					time() + 1,
+					false
+				);
+				$page->addScriptToHead(
+					URL . '/extensions/duplicate_entry/assets/duplicate_entry.js',
+					time() + 1,
+					false
+				);
 
 				// add particular css for SSM
 				Administration::instance()->Page->addElementToHead(

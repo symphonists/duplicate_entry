@@ -1,4 +1,3 @@
-
 #duplicate-entry {
 	transition-property: opacity, background!important;
 	transition-duration: 0.45s;
@@ -14,6 +13,16 @@
 	background-color: #fff;
 	width: calc(100% - 3rem);
 	height: 2.8rem;
+}
+
+@media (max-width: 1023px) {
+	#duplicate-entry {
+		background: none;
+	}
+
+	#duplicate-entry select {
+		display: none;
+	}
 }
 
 body #contents .actions #duplicate-entry:hover,

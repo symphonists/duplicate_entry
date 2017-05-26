@@ -25,7 +25,9 @@
 	}
 }
 
-body #contents .actions #duplicate-entry:hover,
-body #contents .actions #duplicate-entry:hover input {
-	background: #3B3D40!important;
+@media (min-width: 1024px) {
+	body #contents .actions #duplicate-entry:hover,
+	body #contents .actions #duplicate-entry:hover input {
+		background: #3B3D40!important;
+	}
 }

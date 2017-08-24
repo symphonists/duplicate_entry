@@ -56,7 +56,7 @@
 					}
 				}
 
-				if (count($duplicate_sections) < 2) $duplicate_sections = NULL;
+				if (count($duplicate_sections) < 2) $duplicate_sections = null;
 
 				Administration::instance()->Page->addElementToHead(
 					new XMLElement(

@@ -27,14 +27,14 @@
 			$page = Administration::instance()->Page;
 
 			$c = Administration::instance()->getPageCallback();
-            $canInclude = true;
-            if ($canInclude && class_exists('LSE', false)) {
-                $section = LSE::getSection($c['context']['section_handle']);
-                if ($section) {
-                    $max = LSE::getMaxEntries($section);
-                    $canInclude = $max == 0 || LSE::getTotalEntries($section) < $max;
-                }
-            }
+			$canInclude = true;
+			if ($canInclude && class_exists('LSE', false)) {
+				$section = LSE::getSection($c['context']['section_handle']);
+				if ($section) {
+					$max = LSE::getMaxEntries($section);
+					$canInclude = $max == 0 || LSE::getTotalEntries($section) < $max;
+				}
+			}
 
 			if ($page instanceof contentPublish && $canInclude === true) {
 
@@ -44,12 +44,12 @@
 
 				$sm = new SectionManager(Administration::instance());
 
-				$current_section = $sm->fetch($sm->fetchIDFromHandle($callback['context']['section_handle']));
+				$current_section = $sm->select()->section($sm->fetchIDFromHandle($callback['context']['section_handle']))->execute()->next();
 				$current_section_hash = $this->serialiseSectionSchema($current_section);
 
 				$duplicate_sections = array();
 
-				foreach($sm->fetch() as $section) {
+				foreach($sm->select()->execute()->rows() as $section) {
 					$section_hash = $this->serialiseSectionSchema($section);
 					if ($section_hash == $current_section_hash && $section->get('handle')) {
 						$duplicate_sections[$section->get('handle')] = $section->get('name');

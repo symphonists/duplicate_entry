@@ -44,12 +44,20 @@
 
 				$sm = new SectionManager(Administration::instance());
 
-				$current_section = $sm->select()->section($sm->fetchIDFromHandle($callback['context']['section_handle']))->execute()->next();
+				$current_section = $sm
+					->select()
+					->section($sm->fetchIDFromHandle($callback['context']['section_handle']))
+					->execute()
+					->next();
 				$current_section_hash = $this->serialiseSectionSchema($current_section);
 
 				$duplicate_sections = array();
 
-				foreach($sm->select()->execute()->rows() as $section) {
+				foreach($sm
+					->select()
+					->execute()
+					->rows() as $section
+				) {
 					$section_hash = $this->serialiseSectionSchema($section);
 					if ($section_hash == $current_section_hash && $section->get('handle')) {
 						$duplicate_sections[$section->get('handle')] = $section->get('name');

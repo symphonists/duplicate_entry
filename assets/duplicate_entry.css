@@ -1,0 +1,33 @@
+#duplicate-entry {
+	transition-property: opacity, background!important;
+	transition-duration: 0.2s;
+	transition-timing-function: 'ease-in-out';
+	background: #2f77eb;
+}
+
+#duplicate-entry select {
+	display: block;
+	line-height: 2.8rem;
+	margin: -0.5rem 1.5rem 1rem;
+	border: none;
+	background-color: #fff;
+	width: calc(100% - 3rem);
+	height: 2.8rem;
+}
+
+@media (max-width: 1023px) {
+	#duplicate-entry {
+		background: none;
+	}
+
+	#duplicate-entry select {
+		display: none;
+	}
+}
+
+@media (min-width: 1024px) {
+	body #contents .actions #duplicate-entry:hover,
+	body #contents .actions #duplicate-entry:hover input {
+		background: #3B3D40!important;
+	}
+}

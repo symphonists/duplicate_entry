@@ -1,6 +1,6 @@
 #duplicate-entry {
 	transition-property: opacity, background!important;
-	transition-duration: 0.45s;
+	transition-duration: 0.2s;
 	transition-timing-function: 'ease-in-out';
 	background: #2f77eb;
 }
